@@ -20,16 +20,32 @@ class CharacterCard extends StatelessWidget {
           ),
         );
       },
-      child: Card(
-        child: Column(
-          children: [
-            Container(
-              height: 100,
-              child: Image.network(character.image),
+      child: Stack(
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: 200,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.fitWidth,
+                image: NetworkImage(character.image),
+              ),
             ),
-            Text(character.name),
-          ],
-        ),
+          ),
+          Positioned(
+            bottom: 0,
+            child: Container(
+              color: Colors.white.withOpacity(0.8),
+              height: 30,
+              width: MediaQuery.of(context).size.width,
+              child: Center(
+                child: Text(
+                  character.name,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

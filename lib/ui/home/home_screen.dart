@@ -29,10 +29,8 @@ class HomeList extends StatelessWidget {
 
     var characters = provider.charactersList;
     return ListView.builder(
-      itemBuilder: (context, index) => ListTile(
-        title: CharacterCard(
-          character: characters[index],
-        ),
+      itemBuilder: (context, index) => CharacterCard(
+        character: characters[index],
       ),
       itemCount: characters.length,
     );
