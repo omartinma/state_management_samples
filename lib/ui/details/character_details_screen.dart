@@ -11,10 +11,18 @@ class CharacterDetails extends StatelessWidget {
     var character = provider.characterSelected;
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+      ),
+      extendBodyBehindAppBar: true,
       body: Container(
+        color: Colors.red,
         height: MediaQuery.of(context).size.height,
-        child: Image.network(character.image),
+        child: FittedBox(
+          fit: BoxFit.cover,
+          child: Image.network(character.image),
+        ),
       ),
     );
   }
